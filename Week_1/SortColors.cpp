@@ -1,22 +1,23 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+    void sortColors(vector<int>& nums) {
 
-        int l = 0, r= nums.size()-1;
+        int l =0, r= nums.size()-1;
 
-        while(l<r){
-            if(nums[l]+ nums[r] == target){
-                return {l+1,r+1};
+        for(int i=0; i<=r;){
+
+            if(nums[i] == 0){
+                swap(nums[i], nums[l]);
+                l++;
+                i++;
             }
-            else if(nums[l] + nums[r] >target){
+            else if(nums[i] == 2){
+                swap(nums[i], nums[r]);
                 r--;
             }
-            else{
-                l++;
-            }
+            else i++;
         }
 
-        return {};
         
     }
 };
